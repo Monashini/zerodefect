@@ -1,0 +1,38 @@
+[
+  {
+    "category": "bottle",
+    "shots": 1,
+    "image_auroc": 0.9929,
+    "pixel_auroc": 0.9834,
+    "auto_threshold_acc": 0.7952,
+    "recall_at_auto": 1.0,
+    "false_alarm_at_auto": 0.85,
+    "n_test": 83,
+    "fit_s": 1.14,
+    "ms_per_image": 141.3
+  },
+  {
+    "category": "bottle",
+    "shots": 2,
+    "image_auroc": 1.0,
+    "pixel_auroc": 0.9823,
+    "auto_threshold_acc": 0.8072,
+    "recall_at_auto": 1.0,
+    "false_alarm_at_auto": 0.8,
+    "n_test": 83,
+    "fit_s": 3.68,
+    "ms_per_image": 257.6
+  },
+  {
+    "category": "bottle",
+    "shots": 4,
+    "image_auroc": 0.9976,
+    "pixel_auroc": 0.9832,
+    "auto_threshold_acc": 0.8795,
+    "recall_at_auto": 1.0,
+    "false_alarm_at_auto": 0.5,
+    "n_test": 83,
+    "fit_s": 11.4,
+    "ms_per_image": 249.3
+  }
+]

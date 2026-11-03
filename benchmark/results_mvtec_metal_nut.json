@@ -1,0 +1,38 @@
+[
+  {
+    "category": "metal_nut",
+    "shots": 1,
+    "image_auroc": 0.9313,
+    "pixel_auroc": 0.9514,
+    "auto_threshold_acc": 0.791,
+    "recall_at_auto": 0.9778,
+    "false_alarm_at_auto": 0.5909,
+    "n_test": 67,
+    "fit_s": 2.3,
+    "ms_per_image": 248.4
+  },
+  {
+    "category": "metal_nut",
+    "shots": 2,
+    "image_auroc": 0.9323,
+    "pixel_auroc": 0.9666,
+    "auto_threshold_acc": 0.8358,
+    "recall_at_auto": 0.9333,
+    "false_alarm_at_auto": 0.3636,
+    "n_test": 67,
+    "fit_s": 7.63,
+    "ms_per_image": 252.5
+  },
+  {
+    "category": "metal_nut",
+    "shots": 4,
+    "image_auroc": 0.9485,
+    "pixel_auroc": 0.9668,
+    "auto_threshold_acc": 0.8806,
+    "recall_at_auto": 0.8667,
+    "false_alarm_at_auto": 0.0909,
+    "n_test": 67,
+    "fit_s": 11.75,
+    "ms_per_image": 247.2
+  }
+]

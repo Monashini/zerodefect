@@ -1,0 +1,182 @@
+[
+  {
+    "part": "gear",
+    "golden_seed": 1,
+    "image_auroc": 0.995625,
+    "auto": {
+      "recall": 0.7,
+      "false_alarm": 0.0
+    },
+    "calibrated": {
+      "recall": 0.9,
+      "false_alarm": 0.0
+    },
+    "recall_by_defect_calibrated": {
+      "scratch": 0.625,
+      "crack": 0.875,
+      "missing_hole": 1.0,
+      "stain": 1.0,
+      "chipped_edge": 1.0
+    }
+  },
+  {
+    "part": "gear",
+    "golden_seed": 2,
+    "image_auroc": 0.9562499999999999,
+    "auto": {
+      "recall": 0.75,
+      "false_alarm": 0.075
+    },
+    "calibrated": {
+      "recall": 0.325,
+      "false_alarm": 0.0
+    },
+    "recall_by_defect_calibrated": {
+      "scratch": 0.0,
+      "crack": 0.25,
+      "missing_hole": 0.0,
+      "stain": 1.0,
+      "chipped_edge": 0.375
+    }
+  },
+  {
+    "part": "gear",
+    "golden_seed": 3,
+    "image_auroc": 0.995,
+    "auto": {
+      "recall": 0.75,
+      "false_alarm": 0.0
+    },
+    "calibrated": {
+      "recall": 0.9,
+      "false_alarm": 0.025
+    },
+    "recall_by_defect_calibrated": {
+      "scratch": 0.875,
+      "crack": 0.75,
+      "missing_hole": 1.0,
+      "stain": 1.0,
+      "chipped_edge": 0.875
+    }
+  },
+  {
+    "part": "washer",
+    "golden_seed": 1,
+    "image_auroc": 0.9774999999999999,
+    "auto": {
+      "recall": 0.75,
+      "false_alarm": 0.0
+    },
+    "calibrated": {
+      "recall": 0.975,
+      "false_alarm": 0.05
+    },
+    "recall_by_defect_calibrated": {
+      "scratch": 0.875,
+      "crack": 1.0,
+      "missing_hole": 1.0,
+      "stain": 1.0,
+      "chipped_edge": 1.0
+    }
+  },
+  {
+    "part": "washer",
+    "golden_seed": 2,
+    "image_auroc": 1.0,
+    "auto": {
+      "recall": 0.975,
+      "false_alarm": 0.0
+    },
+    "calibrated": {
+      "recall": 1.0,
+      "false_alarm": 0.025
+    },
+    "recall_by_defect_calibrated": {
+      "scratch": 1.0,
+      "crack": 1.0,
+      "missing_hole": 1.0,
+      "stain": 1.0,
+      "chipped_edge": 1.0
+    }
+  },
+  {
+    "part": "washer",
+    "golden_seed": 3,
+    "image_auroc": 1.0,
+    "auto": {
+      "recall": 0.975,
+      "false_alarm": 0.0
+    },
+    "calibrated": {
+      "recall": 1.0,
+      "false_alarm": 0.1
+    },
+    "recall_by_defect_calibrated": {
+      "scratch": 1.0,
+      "crack": 1.0,
+      "missing_hole": 1.0,
+      "stain": 1.0,
+      "chipped_edge": 1.0
+    }
+  },
+  {
+    "part": "bracket",
+    "golden_seed": 1,
+    "image_auroc": 0.99375,
+    "auto": {
+      "recall": 0.525,
+      "false_alarm": 0.0
+    },
+    "calibrated": {
+      "recall": 0.95,
+      "false_alarm": 0.05
+    },
+    "recall_by_defect_calibrated": {
+      "scratch": 0.875,
+      "crack": 0.875,
+      "missing_hole": 1.0,
+      "stain": 1.0,
+      "chipped_edge": 1.0
+    }
+  },
+  {
+    "part": "bracket",
+    "golden_seed": 2,
+    "image_auroc": 0.999375,
+    "auto": {
+      "recall": 0.825,
+      "false_alarm": 0.0
+    },
+    "calibrated": {
+      "recall": 1.0,
+      "false_alarm": 0.025
+    },
+    "recall_by_defect_calibrated": {
+      "scratch": 1.0,
+      "crack": 1.0,
+      "missing_hole": 1.0,
+      "stain": 1.0,
+      "chipped_edge": 1.0
+    }
+  },
+  {
+    "part": "bracket",
+    "golden_seed": 3,
+    "image_auroc": 0.99625,
+    "auto": {
+      "recall": 0.975,
+      "false_alarm": 0.0
+    },
+    "calibrated": {
+      "recall": 0.975,
+      "false_alarm": 0.075
+    },
+    "recall_by_defect_calibrated": {
+      "scratch": 0.875,
+      "crack": 1.0,
+      "missing_hole": 1.0,
+      "stain": 1.0,
+      "chipped_edge": 1.0
+    }
+  }
+]
