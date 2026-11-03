@@ -2,6 +2,8 @@
 
 **AI quality inspection for small factories. Show it one good part and it checks the rest, using just a phone camera.**
 
+**Author:** Monashini ([@Monashini](https://github.com/Monashini)) · **Demo video:** https://youtu.be/V-uBvXXySCs
+
 Built for the **Meta Global AI Developer Hackathon** (Theme: *Push the Frontier – manufacturing*) with **Muse Spark** and **SAM 3.1** on Meta Model API.
 
 ![Inspecting a real bottle (MVTec AD)](docs/screenshot-real-bottle.jpg)
@@ -141,6 +143,10 @@ tests/          pytest suite
 
 All code in this repository was written during the hackathon building period (Oct 27 – Nov 4, 2026). The application idea was submitted with the hackathon application. Third-party components are the ONNX Model Zoo ResNet-18 weights (Apache-2.0), downloaded at setup and not stored in the repo, plus the open-source Python packages listed in `requirements.txt`.
 
+## Author
+
+**Monashini** · [github.com/Monashini](https://github.com/Monashini)
+
 ## License
 
-MIT
+MIT © 2026 Monashini
