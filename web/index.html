@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZeroDefect</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2322c55e'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11' stroke='white' stroke-width='3.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <div class="logo">0</div>
+    <div>
+      <h1>ZeroDefect</h1>
+      <p class="sub">Show it one good part. It checks the rest.</p>
+    </div>
+  </div>
+  <div class="chips">
+    <span class="chip" id="chip-spark">Muse Spark: …</span>
+    <span class="chip" id="chip-sam">SAM 3.1: …</span>
+    <button class="ghost small" id="voice-toggle" title="Spoken call-outs">🔊 Voice on</button>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist">
+  <button class="tab active" data-tab="setup">1 · Golden sample</button>
+  <button class="tab" data-tab="inspect">2 · Inspect</button>
+  <button class="tab" data-tab="report">3 · Shift report</button>
+</nav>
+
+<main>
+<!-- ============================ SETUP ============================ -->
+<section id="tab-setup" class="panel active">
+  <div class="grid two">
+    <div class="card">
+      <h2>Teach the perfect part</h2>
+      <p class="muted">Put one good part in front of the camera. That's the only setup. No defect photos, no training.</p>
+      <label>Product name <input id="p-name" value="Gear 40T" maxlength="60"></label>
+      <label>What is the part? <span class="hint">(SAM 3.1 uses this to find every part in the frame)</span>
+        <input id="p-prompt" value="metal gear" maxlength="60"></label>
+      <label>Notes for the inspector <span class="hint">(optional)</span>
+        <input id="p-notes" placeholder="e.g. small tool marks on the back are OK" maxlength="200"></label>
+      <label class="check"><input type="checkbox" id="p-rot"> Parts can arrive in any rotation</label>
+      <div class="row gap">
+        <button id="g-camera" class="primary">📷 Capture from camera</button>
+        <label class="button secondary">⬆ Upload photo<input type="file" id="g-file" accept="image/*" capture="environment" multiple hidden></label>
+        <button id="g-demo" class="ghost">Use demo part</button>
+      </div>
+      <p class="status" id="g-status"></p>
+    </div>
+    <div class="card">
+      <h2>Current golden sample</h2>
+      <div id="golden-view" class="golden-empty">No golden sample yet</div>
+      <div id="golden-meta" class="muted small"></div>
+      <hr>
+      <h3>Optional: calibrate with a few more OK parts</h3>
+      <p class="muted small">3–5 photos of normal parts set the pass/fail line more precisely for your lighting.</p>
+      <div class="row gap">
+        <button id="c-camera" class="secondary" disabled>📷 Add OK part</button>
+        <label class="button ghost">⬆ Upload OK parts<input type="file" id="c-file" accept="image/*" multiple hidden></label>
+      </div>
+      <p class="status" id="c-status"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ INSPECT ============================ -->
+<section id="tab-inspect" class="panel">
+  <div class="grid inspect">
+    <div class="card">
+      <div class="camwrap">
+        <video id="video" playsinline muted></video>
+        <img id="annotated" alt="Inspection result" hidden>
+        <div id="cam-placeholder" class="cam-placeholder">Camera is off</div>
+        <div id="verdict" class="verdict" hidden></div>
+      </div>
+      <div class="row gap wrap">
+        <button id="cam-toggle" class="secondary">Start camera</button>
+        <button id="inspect-btn" class="primary big">Inspect</button>
+        <label class="button ghost">⬆ Photo<input type="file" id="i-file" accept="image/*" capture="environment" hidden></label>
+        <button id="i-demo" class="ghost">Demo frame</button>
+        <label class="check"><input type="checkbox" id="auto"> Auto every <select id="auto-int"><option>2</option><option selected>3</option><option>5</option></select>s</label>
+      </div>
+      <div class="row gap wrap slider">
+        <label>Sensitivity <input type="range" id="sens" min="0.5" max="2" step="0.05" value="1"></label>
+        <span id="sens-val" class="muted small">1.00</span>
+        <span id="meta-line" class="muted small"></span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="counters">
+        <div><b id="k-total">0</b><span>inspected</span></div>
+        <div class="ok"><b id="k-pass">0</b><span>pass</span></div>
+        <div class="bad"><b id="k-fail">0</b><span>fail</span></div>
+        <div class="warn"><b id="k-review">0</b><span>review</span></div>
+      </div>
+      <div id="parts"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ REPORT ============================ -->
+<section id="tab-report" class="panel">
+  <div class="grid two">
+    <div class="card">
+      <h2>Defects by hour</h2>
+      <div id="hour-chart" class="chart"></div>
+      <h2>Defect types</h2>
+      <div id="breakdown"></div>
+    </div>
+    <div class="card">
+      <div class="row space">
+        <h2>Shift report</h2>
+        <button id="report-btn" class="primary">Generate with Muse Spark</button>
+      </div>
+      <div id="report" class="report muted">The agent reads the inspection log with tools and writes what to fix next.</div>
+      <div id="report-trace" class="muted small"></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="row space"><h2>Recent inspections</h2><button id="reset-log" class="ghost small">Clear log</button></div>
+    <div id="history" class="history"></div>
+  </div>
+</section>
+</main>
+
+<canvas id="grab" hidden></canvas>
+<footer class="muted small">ZeroDefect · built for the Meta Global AI Developer Hackathon · Muse Spark + SAM 3.1 via Meta Model API</footer>
+<script src="app.js"></script>
+</body>
+</html>
